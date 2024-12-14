@@ -1,20 +1,20 @@
 public class Main {
     public static void main(String[] args) {
-        LinkedList chainList = new LinkedList();
+        LinkedList list = new LinkedList();
 
-        // Create ChainLink objects with different colors
-        ChainLink redLink = new ChainLink("red");
-        ChainLink blueLink = new ChainLink("blue");
-        ChainLink greenLink = new ChainLink("green");
+        // Adding elements to the linked list
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
 
-        // Append ChainLink objects to the linked list
-        chainList.append(redLink);
-        chainList.append(blueLink);
-        chainList.append(greenLink);
+        System.out.println("Original Linked List:");
+        list.printList();
 
-        // Retrieve and print the colors of ChainLink objects by index
-        System.out.println("Color at index 0: " + chainList.get(0).color); // Expected output: red
-        System.out.println("Color at index 1: " + chainList.get(1).color); // Expected output: blue
-        System.out.println("Color at index 2: " + chainList.get(2).color); // Expected output: green
+        // Reverse the linked list
+        list.reverse();
+
+        System.out.println("Reversed Linked List:");
+        list.printList();
     }
 }

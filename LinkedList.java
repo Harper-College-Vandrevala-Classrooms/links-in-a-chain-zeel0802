@@ -1,31 +1,42 @@
 public class LinkedList {
     private Node head;
 
-    // Method to append a new ChainLink to the end of the list
-    public void append(ChainLink chainLink) {
-        Node newNode = new Node(chainLink);
+    // Method to add a node at the end
+    public void add(int data) {
+        Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
-        } else {
-            Node current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
+            return;
         }
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = newNode;
     }
 
-    // Method to get a ChainLink at a specific index
-    public ChainLink get(int index) {
+    // Add-On: Reverse the Linked List
+    public void reverse() {
+        Node previous = null;
         Node current = head;
-        int count = 0;
+        Node next = null;
+
         while (current != null) {
-            if (count == index) {
-                return current.data;
-            }
-            current = current.next;
-            count++;
+            next = current.next; // Store the next node
+            current.next = previous; // Reverse the link
+            previous = current; // Move the 'previous' pointer forward
+            current = next; // Move the 'current' pointer forward
         }
-        return null; // If the index is out of bounds
+        head = previous; // Update the head of the list
+    }
+
+    // Method to print the linked list
+    public void printList() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " -> ");
+            current = current.next;
+        }
+        System.out.println("null");
     }
 }

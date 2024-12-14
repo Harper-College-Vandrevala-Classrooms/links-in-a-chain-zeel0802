@@ -1,8 +1,8 @@
 public class Node {
-    public ChainLink data;  // Holds the ChainLink object
-    public Node next;       // Points to the next node in the list
+    int data;
+    Node next;
 
-    public Node(ChainLink data) {
+    public Node(int data) {
         this.data = data;
         this.next = null;
     }
